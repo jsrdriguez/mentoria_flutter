@@ -31,10 +31,45 @@ class _InitPageState extends State<InitPage> {
             text: "Continua con Apple",
             icon: Image.asset("assets/social_icons/apple.png", width: 20) 
           ),
+          const DividerLogin(),
           const GotoLogin()
         ],
       ),
     ));
+  }
+}
+
+class DividerLogin extends StatelessWidget {
+  const DividerLogin({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 40.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: Divider(
+              color: Color.fromARGB(255, 237, 235, 235),
+              thickness: 2.0,
+              endIndent: 15.0,
+            ),
+          ),
+          Text("or", style: TextStyle(
+            color: Color.fromARGB(255, 101, 101, 101),
+            fontSize: 18.0,
+            fontWeight: FontWeight.w700
+          ),),
+          Expanded(
+            child: Divider(
+              color: Color.fromARGB(255, 237, 235, 235),
+              thickness: 2.0,
+              indent: 15.0,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -80,15 +115,18 @@ class GotoLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.all(20),
           shape: const StadiumBorder(),
           backgroundColor: const Color.fromRGBO(77, 93, 250, 1)
         ),
-        child: const Text("Iniciar con correo"),
+        child: const Text("Iniciar con correo", style: TextStyle(
+          color: Colors.white,
+          fontSize: 16.0
+        ),),
       ),
     );
   }
